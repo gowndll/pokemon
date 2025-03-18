@@ -1,6 +1,5 @@
 # 포켓몬도감 만들기(개인플젝)
 <p>사실 몇번이고 시도했었던 포켓몬도감 만들기.. 약 한달동안 빡세게 집중해서 뭐라도 완성해보기로 했다.</p>
-<p>배포링크: <a href="https://github.com/gowndll/pokemon_JS">https://github.com/gowndll/pokemon_JS</a></p>
 
 
 
