@@ -73,7 +73,7 @@ const Logo = styled.div`
   width: 100%; 
   height: 0;
   padding-bottom: 100%;
-  background: center right 10px / 24px url('/assets/img/ico-home.svg') no-repeat;
+  background: center right 10px / 24px url('https://gowndll.github.io/pokemon/assets/img/ico-home.svg') no-repeat;
 `;
 
 const SearchInput = styled.div`

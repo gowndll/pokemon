@@ -80,7 +80,7 @@ const SearchCard = styled.div`
     justify-content: center;
     grid-template-rows: auto 1fr auto;
     width: 100%;
-    min-height: 8vw;
+    min-height: 100px;
   }
 `;
 

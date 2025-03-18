@@ -35,7 +35,7 @@ const SearchIcon = styled.div`
   padding-bottom: 100%;
   grid-column: 2/3;
   background-color: transparent;
-  background: center right 10px / 24px url('/assets/img/ico-search.svg') no-repeat;
+  background: center right 10px / 24px url('https://gowndll.github.io/pokemon/assets/img/ico-search.svg') no-repeat;
 `;
 
 export default Header;

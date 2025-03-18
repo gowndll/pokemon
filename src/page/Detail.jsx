@@ -116,7 +116,7 @@ const Logo = styled.div`
   width:10%; 
   height: 0;
   padding-bottom: 10%;
-  background: center / 24px url('/assets/img/ico-home.svg') no-repeat;
+  background: center / 24px url('https://gowndll.github.io/pokemon/assets/img/ico-home.svg') no-repeat;
 `;
 
 const No = styled.p`
@@ -197,7 +197,7 @@ const CryControl = styled.button`
   border-radius: 100%;
   border: 0;
   cursor: pointer;
-  background: center / contain url('/assets/img/ico-play.svg') no-repeat;
+  background: center / contain url('https://gowndll.github.io/pokemon/assets/img/ico-play.svg') no-repeat;
 `;
 
 const InfoTable = styled.table`

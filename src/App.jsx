@@ -46,7 +46,7 @@ const Wrap = styled.div`
     left:0;
     right:0;
     height: 180px;
-    background: center top / 100% auto url('/assets/img/bg02-01.svg') no-repeat, center top / auto 180px url('/assets/img/bg02-02.svg') no-repeat;
+    background: center top / 100% auto url('https://gowndll.github.io/pokemon/assets/img/bg02-01.svg') no-repeat, center top / auto 180px url('https://gowndll.github.io/pokemon/assets/img/bg02-02.svg') no-repeat;
     z-index: 10;
   }
 
@@ -58,7 +58,7 @@ const Wrap = styled.div`
     left:0;
     right:0;
     height: 180px;
-    background: center top / 100% auto url('/assets/img/bg02-01.svg') no-repeat, center top / auto 180px url('/assets/img/bg02-02.svg') no-repeat;
+    background: center top / 100% auto url('https://gowndll.github.io/pokemon/assets/img/bg02-01.svg') no-repeat, center top / auto 180px url('https://gowndll.github.io/pokemon/assets/img/bg02-02.svg') no-repeat;
     transform: rotate(180deg);
     z-index: 10;
   }
