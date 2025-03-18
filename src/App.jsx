@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store} value={{basename: "/"}}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Wrap>
             <Content>
               <Routes>
