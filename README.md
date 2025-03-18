@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# 포켓몬도감 만들기(개인플젝)
+<p>사실 몇번이고 시도했었던 포켓몬도감 만들기.. 약 한달동안 빡세게 집중해서 뭐라도 완성해보기로 했다.</p>
+<p>배포링크: <a href="https://github.com/gowndll/pokemon_JS">https://github.com/gowndll/pokemon_JS</a></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## 사용한 스킬
+<div>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white"/>
+<img src="https://img.shields.io/badge/Styled--components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white"/>
+</div>
 
-### `npm start`
+## 주요 구현 사항
+<ul>
+  <li>Intersection Observer API를 이용한 무한스크롤</li>
+  <li>styled-components를 사용해 스타일링</li>
+  <li>react-router-dom을 이용해 페이지 라우팅</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 업데이트 구현 예정
+<ul>
+  <li>JS를 TS로 업데이트</li>
+  <li>Redux대시 React Query로 1세대 포켓몬 api를 다량 요청후 캐싱하여 사용</li>
+  <li>포켓몬 정렬처리</li>
+  <li>필터 추가(세대별, 타입별)</li>
+  <li>검색 자동완성</li>
+  <li>뒤로가기 시 스크롤 위치 및 데이터 기억</li>
+</ul>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table>
+  <thead>
+    <tr>
+      <th>버전</th>
+      <th>날짜</th>
+      <th>주요 업데이트</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td>1.0</td>
+    <td>25.03.18</td>
+    <td>
+      <ul>
+        <li>포켓몬 정보 API 호출(axios)</li>
+        <li>무한 스크롤 구현(Intersection Observer API)</li>
+      </ul>
+    </td>
+  </tbody>
+</table>
