@@ -2,92 +2,92 @@ export const TypeE = {
   normal: {
     name: "노말",
     color: "#949495",
-    img: "https://i.namu.wiki/i/1f0Lf17elk188L5Fwat6PlqMsAy6Y_b97vE0IzbF0TVUrjdtQpNtyyiAl8u7u0IjZ_Ik2Mtf2hAIA7-kqPwUAg.svg"
+    img: "https://i.namu.wiki/i/6b0L8-RDEts1rAd-IIeBBirgYiEi2eOkv_GpkzNUhk8ofHVoPtQMpoXEIEGIETWGL_X8wE9fo4HNBP1sTeKHTQ.svg"
   },
   fighting: {
     name: "격투",
     color: "#e09c40",
-    img: "https://i.namu.wiki/i/6OMgxI1hlgtWuyoZ6qK-pWWkcvVzHK6ECyLbEMHsHw3nACFflRjyZvBCkjdnnCr9jdNlk-JOx_PdmMyjsxccCg.svg"
+    img: "https://i.namu.wiki/i/gl6iD4LQOgrwoaGCLz8XPGIzBDWFRp7rBehZh9qv1yzwqly2DmQUDqWLfjs_Z_eAtJdZmgvXpLav29V3_un2lA.svg"
   },
   flying: {
     name: "비행",
     color: "#a2c3e7",
-    img: "https://i.namu.wiki/i/BuLEbmrJBsGQrE43JDNuVL_q550yd333GHZT7R7dBZj4tmHJLvWMiXmajXAJRHCdzbP155g1ZuxaQul3p2jE9Q.svg"
+    img: "https://i.namu.wiki/i/7Sh02_g0dDCIry585rpz3TI8FiDTxIpX00GAp8V9PaVLo5tgYsVJcb8Brx87coD1wcaGJVWrq7icjtYOKJixQA.svg"
   },
   poison: {
     name: "독",
     color: "#735198",
-    img: "https://i.namu.wiki/i/f9a8c_H9TzEpdpILmXWk-TXBxqS8fN3RBGbk1kCWAjQT9UJA27ps8kPJVxlNQf8wgCMNmk__QUM324wLOsJXrg.svg"
+    img: "https://i.namu.wiki/i/gsfe9gblhVuPvB4YVgRBAdzDm-8e-dQxx_85mbQ6mOUuK32E1RI4cho3ttVkymP-ViDudVIWzuHZ0hc07BCSfw.svg"
   },
   ground: {
     name: "땅",
     color: "#9c7743",
-    img: "https://i.namu.wiki/i/FHFuHV_4naYLQ9naH8TdwWTxxUAHAMilRDie2Wld5uTtcA-r5zFVZqRlaJ1UBtZi4dYxT8srxwtqVPwHea02UA.svg"
+    img: "https://i.namu.wiki/i/CMLLlxQwikNyOM31ZsJR6FDvE80RB4l_8AaTUyWaWyPZ5KdWZ0_S_jsTLyogvnWEAtpsWoYDVYIqFBoDGGZILw.svg"
   },
   rock: {
     name: "바위",
     color: "#bfb889",
-    img: "https://i.namu.wiki/i/xLeVkLhPDlRjvvDh-plLJprRlWS3NFibrXMRHQTbYtwjL7eCUBti-p3903LLUveaUqXAtTYYyhshArRG_dLZIA.svg"
+    img: "https://i.namu.wiki/i/3f4DGX5ab2wZsAWSkS2hXCYR1U5Ob8UBHBd1-ZyqJIsbZWYCeifV186jbXZAfcazSruTPmhwBIvX0bGgMbQaFg.svg"
   },
   bug: {
     name: "벌레",
     color: "#9fa244",
-    img: "https://i.namu.wiki/i/nvlCjtOYmQ111PGtBaGxImw4NMAaKCXg1C_3tJJUC5a4M0MSmJT9RYLbLXcUXeMDDl_XVs7jq4g4dLSk7VhHSQ.svg"
+    img: "https://i.namu.wiki/i/gQ8pXLevd61zf3cZ1FFIP8sy8NFvw6o4DcUGy5Vo-yPpwSdyUZhPyGq1knbOs4tAJBqp1YKNoYxi7R4u3Rs3lg.svg"
   },
   ghost: {
     name: "고스트",
     color: "#684870",
-    img: "https://i.namu.wiki/i/fGgFaTi-nJv2WFdNWpIAt8Tn9W2YvQfAe9MjY-NTmKJjZDTeIfqx07BErJUn6lhQgHvnNL2w5y2Unnj2uqB05w.svg"
+    img: "https://i.namu.wiki/i/c1NB80V8f05ffSQ3sfrGGiRDKj1VvZiQAwABLn0epH8QcytWpb5dVBgIp-GUu3b9OYioMjeK0YkXgARNWVM3sg.svg"
   },
   steel: {
     name: "강철",
     color: "#69a9c7",
-    img: "https://i.namu.wiki/i/QYKTfMyggOijV-1giSxC5RvS5QzxALKVRebEEnNNlUO_TBmgzIHR7T22haOf6Mo16Pt4N9KMUQWr548Y638MPA.svg"
+    img: "https://i.namu.wiki/i/ohSWQt2jxHkUYoDhAupw-LudfiT0DnRv0iUP-zh82iUy9VeqCFi-PkqjRxzNLugEnpxlPMOPhc89rL9AyBAvJg.svg"
   },
   fire: {
     name: "불꽃",
     color: "#e56c3e",
-    img: "https://i.namu.wiki/i/hBINPdkWm9lag58KbzcWeJ4mVpx5sju4U6NRRr44DXEKWp4oKVj-6m3PgFcQHaj25t_z38F7A4ACBWEUzq6Awg.svg"
+    img: "https://i.namu.wiki/i/JJGoIsJryIHWj8qNHZ9_8Us3uehHVVp74GQOcB5S_E4riXvLEHrXgfcH2yBuBujpD3j86e_Ic7Kggg2NbTKn5w.svg"
   },
   water: {
     name: "물",
     color: "#5185c5",
-    img: "https://i.namu.wiki/i/5aWQK1gyvOf25V6FDcn_lJ5l7OtIt3-7ZlBbOk8mdKogSvJgE8r-eq2orMbCQCF8aoXpetHh5rVwVEUylSH6-Q.svg"
+    img: "https://i.namu.wiki/i/_JAQaZ5aQh9EFyHHdDHCxVY26mJo0UcLkHb3k17tEBv4_YGczLzQ93_tyAdOSCdE4U0PX1-4i88gXoJUIsmyew.svg"
   },
   grass: {
     name: "풀",
     color: "#66a945",
-    img: "https://i.namu.wiki/i/1ZumSpAWEt9coqV1lLfhGHyHXexNMzhFquldfgjmfW-qkyVXotHze-pYWN7bSoOjOmuI1nEXhY1yJIh1hKSfBw.svg"
+    img: "https://i.namu.wiki/i/j-GgdeWHZmDGwpZKGMxFh6s3OrXAW_CUQ3WuxSli06MQtm_jscrKob2QMEqEcqj4VLWg_MhZBEMYB91GBhditQ.svg"
   },
   electric: {
     name: "전기",
     color: "#fbb917",
-    img: "https://i.namu.wiki/i/Q6dLDiMAi4Htfswa8O0mBVL6ZUvCohEpVAuIA8IH31-EmmUYuZnzE2m7DRNpxy3ulHwReVCPPc_-Q__jebFxuhuCr_VsS6_vAf5P_fhOaC182TRdq17hSfymCHn4r8HxsFuHt-o8BzlmNvurYXx8Ag.svg"
+    img: "https://i.namu.wiki/i/GPGYE3lJLyXzT0pZ_VF5G-rIEh4jb-CiwSVzsDyYPfMv4qaUK3B0mSfYD05uqWiewpLAaCWLlrjzQUSR2_ZnrLQMi7iHLaAyfoaIBUyLO1rys8IzLpz-XpjrNyUnn3irILKVTRtnNsTuBp9vmWoqlA.svg"
   },
   psychic: {
     name: "에스퍼",
     color: "#dd6b7b",
-    img: "https://i.namu.wiki/i/m1oGDkssPHZVczxRBzPxg1Nvlp-nEKsL1YA7oytfJqumjCe4r8FsvtsD6oeqrAUHPROtWClkEdPIedxLL2oM6Q.svg"
+    img: "https://i.namu.wiki/i/1FC_kBJjUjNPK4UYm-l9b7668qlhNQcSvRQ23Ir_MzpmaGqUHOauAkTDVlSHe6oklNQKZqhjkJsOio-OXX3Xdg.svg"
   },
   ice: {
     name: "얼음",
     color: "#6dc8eb",
-    img: "https://i.namu.wiki/i/S7pSqTT0AfFfBlqteU2QKCXrPZzaHcygMOEQJTbtgUMCCXZZW8eAtYwKEi-0qkD7Viw6PGHt6lFofynEGUV00A.svg"
+    img: "https://i.namu.wiki/i/ZLargKxqb9MZa5rQzPoNouEsMKRk6mQXVQmfUljboxzvAbyZKhIsNncmR9mKzzp4ONowFpqubYyeZLgbDQJ_9Q.svg"
   },
   dragon: {
     name: "드래곤",
     color: "#535ca8",
-    img: "https://i.namu.wiki/i/QoVxEgl2zE8XANO9I4V9c54BeQcmprSzedYnvqblpeCmLLUTLIVclMS_RZ6IVpbM9j-9MmdX7v5o3N_-wfX11w.svg"
+    img: "https://i.namu.wiki/i/UgWuocDxrEmUqCa4HDd4ET5FNYJ8Vxjrs22CXMghVdscq41ywTMvDINb2YOWxId3wJjIh88HOyhj94tI6uiPJQ.svg"
   },
   dark: {
     name: "악",
     color: "#4c4948",
-    img: "https://i.namu.wiki/i/9UNEl4MgXHOJfZICUOQ8p7DbVnrA-7QNTIah9WPvcW9T4SmzwcLEJzISz1p79zEmL_jZ84LWYBR5KTy6U9IU9Q.svg"
+    img: "https://i.namu.wiki/i/v0S73t6znlkLkk1I8uj48Adgahf080ey5ze7aLMMHKjiYjbp5g1OX0f3v-UlwT04bvD6tagYgKQ-w5Nyo4V2-Q.svg"
   },
   fairy: {
     name: "페어리",
     color: "#dab4d4",
-    img: "https://i.namu.wiki/i/ryejOXzw_RCS493IXf52ukqAicHerlWhKW5lCZprMSmOia8ES4e3zu0ebpP7FdTAXoIEJR3FJ1DWEZQ8iIR9-A.svg"
+    img: "https://i.namu.wiki/i/4FYDd5xTkZ5_QZ938_8Op8iz1Fsfc3ZeAT_--Awd0yWzjyXzc9cQdXQ1rZsSBZaKS-UUs7ezd_xmPg3BdSx8Ig.svg"
   },
   stellar: {
     name: "스텔라",
