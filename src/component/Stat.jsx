@@ -8,14 +8,11 @@ const Stat = ({url}) => {
     const getPosts = async () => {
       try {
         const data = await GetDetailInfo(url); // API 호출
-        // console.log(data);
         setStat(data);
       }
       catch (error) {
         console.error(error)
-      } finally {
-        // setLoading(false);
-      }
+      } 
     }
     getPosts();
   }, [url])

@@ -7,7 +7,7 @@
 ## 사용한 스킬
 <div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
-<img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white"/>
+<img src="https://img.shields.io/badge/ReactQuery-764ABC?style=flat-square&logo=reactquery&logoColor=white"/>
 <img src="https://img.shields.io/badge/Styled--components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white"/>
 </div>
 
@@ -16,12 +16,13 @@
   <li>Intersection Observer API를 이용한 무한스크롤</li>
   <li>styled-components를 사용해 스타일링</li>
   <li>react-router-dom을 이용해 페이지 라우팅</li>
+  <li>1세대 포켓몬 ReacQuery로 다량 api 요청</li>
 </ul>
 
 ## 업데이트 구현 예정
 <ul>
   <li>JS를 TS로 업데이트</li>
-  <li>Redux대시 React Query로 1세대 포켓몬 api를 다량 요청후 캐싱하여 사용</li>
+  <!-- <li>Redux대시 React Query로 1세대 포켓몬 api를 다량 요청후 캐싱하여 사용</li> -->
   <li>포켓몬 정렬처리</li>
   <li>필터 추가(세대별, 타입별)</li>
   <li>검색 자동완성</li>
@@ -37,14 +38,25 @@
     </tr>
   </thead>
   <tbody>
-    <td>1.0</td>
-    <td>25.03.18</td>
-    <td>
-      <ul>
-        <li>포켓몬 정보 API 호출(axios)</li>
-        <li>무한 스크롤 구현(Intersection Observer API)</li>
-      </ul>
-    </td>
+    <tr>
+      <td>1.01</td>
+      <td>25.03.18</td>
+      <td>
+        <ul>
+          <li>1세대 포켓몬 ReacQuery로 다량 api 요청</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>25.03.18</td>
+      <td>
+        <ul>
+          <li>포켓몬 정보 API 호출(axios)</li>
+          <li>무한 스크롤 구현(Intersection Observer API)</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
 

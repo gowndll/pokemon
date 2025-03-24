@@ -2,41 +2,72 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { GetPokeAPI } from "server/GetPokeAPI";
 import SearchItemList from "component/SearchItemList";
-import loadingSlice from "store/loadingSlice";
-import { useDispatch } from "react-redux";
+// import loadingSlice from "store/loadingSlice";
+// import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Empty from "component/Empty";
 
+import { useQueries } from "@tanstack/react-query";
+import { pokemonDefaultData, pokemonSpeciesData } from "server/FetchPosts";
 
 const SearchPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [searchInputValue, setSearchInputValue] = useState("");
   const [searchAllId, setSearchId] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
+
 
   const handleValueChange = (newValue) => {
     setSelectedValue(newValue)
   }
 
-  useEffect(()=> {
-    dispatch(loadingSlice.actions.startLoding());
+  // useEffect(()=> {
+  //   // dispatch(loadingSlice.actions.startLoding());
 
-    async function fetchSearchData() {
-      try {
-        const response = await GetPokeAPI.get('/pokemon/', {params: {limit: 3}});
-        const results = response.data.results;
-        const id = results.map((result) => {
-          return result.url.split("/").slice(-2, -1).toString();
-        });
-        setSearchId((prev)=> [...new Set([...prev, ...id])]);
-      } catch (error) {
-        console.error(error)
-      } finally {
-        console.log('done')
-      }
+  //   async function fetchSearchData() {
+  //     try {
+  //       const response = await GetPokeAPI.get('/pokemon/', {params: {limit: 3}});
+  //       const results = response.data.results;
+  //       const id = results.map((result) => {
+  //         return result.url.split("/").slice(-2, -1).toString();
+  //       });
+  //       setSearchId((prev)=> [...new Set([...prev, ...id])]);
+  //     } catch (error) {
+  //       console.error(error)
+  //     } finally {
+  //       console.log('done')
+  //     }
+  //   }
+  //   fetchSearchData();
+  //   }, [])
+
+  
+  const [totalData, setTotalData] = useState(null);
+  const [result, results] = useQueries({
+    queries: [
+      {queryKey: ['defaultData'], queryFn: pokemonDefaultData, staleTime: Infinity, cacheTime: Infinity, refetchOnWindowFocus: false,},
+      {queryKey: ['speciesData'], queryFn: pokemonSpeciesData, staleTime: Infinity, cacheTime: Infinity, refetchOnWindowFocus: false,}
+    ]
+  });
+
+  const defaultData = result.data || null;
+  const speciesData = results.data || null;
+
+
+  useEffect(() => {
+    if(speciesData && defaultData) {
+      const mergedData = defaultData.map((item, index) => ({
+        ...item,
+        ...(speciesData[index] || {}), // ✅ details[index]가 undefined일 경우 빈 객체로 처리
+      }));
+      setTotalData(mergedData);
     }
-    fetchSearchData();
-    }, [dispatch])
+    
+  }, [speciesData, defaultData]);
+
+  useEffect(() => {
+
+  })
 
   return (
     <SearchWrap>

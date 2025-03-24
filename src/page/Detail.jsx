@@ -1,122 +1,114 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { GetDetailFromId } from "../server/GetPokeAPI";
 import Abilities from "../component/Abilities";
 import Stat from "../component/Stat";
 import { TypeE } from "../server/TransEnum";
 import { ProfileFrontImg, ProfileBackImg } from "component/ProfileImg";
 import styled from "styled-components";
+import Header from "component/Header";
+import { useQuery } from "@tanstack/react-query";
+import { pokemonDefaultData } from "server/FetchPosts";
 
 const Detail = () => {
   const params = useParams();
-  const [pokeList, setPokeList] = useState(null);
-  const [pokeListSpecies, setPokeListSpecies] = useState(null);
   const cryAudio = useRef();
+  const [selectedData, setSelectedData] = useState(null);
 
-  useEffect(()=> {
-    if (params.id) {
-      async function fetchDetailData () {
-        try {
-          const responseAll = await GetDetailFromId(params.id);
-          setPokeList(responseAll.response1);
-          setPokeListSpecies(responseAll.response2);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      fetchDetailData();
+  const defaultData = useQuery({
+    queryKey: ['defaultData'],
+    queryFn: pokemonDefaultData,
+    staleTime: Infinity, 
+    cacheTime: Infinity, 
+    refetchOnWindowFocus: false,
+  });
+
+  useEffect(() => {
+    if(defaultData.data) {
+      const selectedID = defaultData.data.filter(item => item.id === Number(params.id));
+      setSelectedData(selectedID[0]);
     }
-  }, [params.id])
+  }, [defaultData.data, params])
 
+  
   return(
-    <DetailWrap>
-      <Link to="/"><Logo /></Link>
-      {pokeListSpecies && (
-      <>
-        <No>No. {pokeListSpecies.id}</No>
-        {pokeListSpecies.names.map((item) => (
-          item.language.name === 'ko' ? <Name>{item.name}</Name> : '' 
-        ))}
-        {pokeListSpecies.flavor_text_entries.map((item) => (
-          item.language.name === 'ko' && item.version.name === "omega-ruby" ? <Info>{item.flavor_text}</Info> : '' 
-        ))}
-      </>
-      )}
-    {pokeList && (
-      <>
-        <TypeWrap>
-          {pokeList.types.map((item) => (
-            <Type bgcolor={TypeE[item.type.name].color}>
-              <TypeImg><img src={TypeE[item.type.name].img} alt="" /></TypeImg>
-              <p>{TypeE[item.type.name].name}</p>
-            </Type>
+    <>
+      <Header/>
+      <DetailWrap>
+        {selectedData && (
+        <>
+          <No>No. {selectedData.id}</No>
+          {selectedData.names.map((item) => (
+            item.language.name === 'ko' ? <Name>{item.name}</Name> : '' 
           ))}
-        </TypeWrap>
-        <Img>
-          <ProfileFrontImg totalData={pokeList}/>
-          <ProfileBackImg totalData={pokeList}/>
-        </Img>
-        <Cry>
-          <audio ref={cryAudio} src={pokeList.cries.latest} controls autoPlay></audio>
-          <CryControl onClick={()=> cryAudio.current.play()}></CryControl>
-        </Cry>
-        <InfoTable>
-          <colgroup>
-            <col style={{width: 30 + '%'}}/>
-            <col style={{width: 70 + '%'}}/>
-          </colgroup>
-          <tbody>
-            <tr>
-              <th colSpan={2}>세부정보</th>
-            </tr>
-            <tr>
-              <td>키</td>
-              <td>{pokeList.height}cm</td>
-            </tr>
-            <tr>
-              <td>몸무게</td>
-              <td>{pokeList.weight}g</td>
-            </tr>
-            <tr>
-              <th colSpan={2}>능력</th>
-            </tr>
-            {pokeList.abilities?.map((item) => (
-              <Abilities url={item.ability.url}/>
+          {selectedData.flavor_text_entries.map((item) => (
+            item.language.name === 'ko' && item.version.name === "omega-ruby" ? <Info>{item.flavor_text}</Info> : '' 
+          ))}
+          <TypeWrap>
+            {selectedData.types.map((item) => (
+              <Type bgcolor={TypeE[item.type.name].color}>
+                <TypeImg><img src={TypeE[item.type.name].img} alt="" /></TypeImg>
+                <p>{TypeE[item.type.name].name}</p>
+              </Type>
             ))}
-            <tr>
-              <th colSpan={2}>종족치</th>
-            </tr>
-            {pokeList.stats?.map((item) => (
+          </TypeWrap>
+          <Img>
+            <ProfileFrontImg totalData={selectedData}/>
+            <ProfileBackImg totalData={selectedData}/>
+          </Img>
+          <Cry>
+            <audio ref={cryAudio} src={selectedData.cries.latest} controls autoPlay></audio>
+            <CryControl onClick={()=> cryAudio.current.play()}></CryControl>
+          </Cry>
+          <InfoTable>
+            <colgroup>
+              <col style={{width: 30 + '%'}}/>
+              <col style={{width: 70 + '%'}}/>
+            </colgroup>
+            <tbody>
               <tr>
-                <td><Stat url={item.stat.url}/></td>
-                <td>{item.base_stat}</td>
+                <th colSpan={2}>세부정보</th>
               </tr>
-            ))}
-          </tbody>
-        </InfoTable>
-        
-      </>
-    )}
-  </DetailWrap>)
-}
+              <tr>
+                <td>키</td>
+                <td>{selectedData.height}cm</td>
+              </tr>
+              <tr>
+                <td>몸무게</td>
+                <td>{selectedData.weight}g</td>
+              </tr>
+              <tr>
+                <th colSpan={2}>능력</th>
+              </tr>
+              {selectedData.abilities?.map((item) => (
+                <Abilities url={item.ability.url}/>
+              ))}
+              <tr>
+                <th colSpan={2}>종족치</th>
+              </tr>
+              {selectedData.stats?.map((item) => (
+                <tr>
+                  <td><Stat url={item.stat.url}/></td>
+                  <td>{item.base_stat}</td>
+                </tr>
+              ))}
+            </tbody>
+          </InfoTable>
+        </>
+        )}
+    </DetailWrap>
+    </>
+  )}
 
 const DetailWrap = styled.div`
   position: relative;
   height: 100%;
   padding: 20px;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.9);
   border-radius: 10px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-const Logo = styled.div`
-  width:10%; 
-  height: 0;
-  padding-bottom: 10%;
-  background: center / 24px url('https://gowndll.github.io/pokemon/assets/img/ico-home.svg') no-repeat;
 `;
 
 const No = styled.p`

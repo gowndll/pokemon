@@ -3,12 +3,12 @@ import { GetDetailFromId } from "../server/GetPokeAPI";
 import { TypeE } from "../server/TransEnum";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import loadingSlice from "../store/loadingSlice";
 import {ProfileFrontImg} from "./ProfileImg";
 
 const MainList = ({id}) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [pokeList, setPokeList] = useState(null)
   const [pokeListName, setPokeListName] = useState(null)
 
@@ -28,11 +28,11 @@ const MainList = ({id}) => {
   }, [id]);
 
   
-  useEffect(() => {
-    if(pokeList) {
-      dispatch(loadingSlice.actions.stopLoding())
-    }
-  }, [dispatch, pokeList, pokeListName]);
+  // useEffect(() => {
+  //   if(pokeList) {
+  //     dispatch(loadingSlice.actions.stopLoding())
+  //   }
+  // }, [dispatch, pokeList, pokeListName]);
 
 
   return (

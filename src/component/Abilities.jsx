@@ -4,22 +4,14 @@ import { GetDetailInfo } from "../server/GetPokeAPI";
 const Abilities = ({url}) => {
   const [abillities, setAbilities] = useState(null);
 
-  // useEffect(() => {
-  //   setAbilities(<GetDetailInfo url={abillities}/>);
-  //   console.log(abillities)
-  // }, [url])
-
   useEffect(() => {
     const getPosts = async () => {
       try {
         const data = await GetDetailInfo(url); // API 호출
         setAbilities(data);
-        // console.log(data);
       } catch (error) {
         console.error(error);
-      } finally {
-        // setLoading(false);
-      }
+      } 
     };
 
     getPosts();

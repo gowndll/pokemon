@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import loadingSlice from "./loadingSlice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import loadingSlice from "./loadingSlice";
 
-const store = configureStore({
-  reducer: {
-    loading: loadingSlice.reducer,
-  }
-})
+// const store = configureStore({
+//   reducer: {
+//     loading: loadingSlice.reducer,
+//   }
+// })
 
-export default store;
+// export default store;
