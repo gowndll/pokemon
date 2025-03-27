@@ -1,18 +1,25 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderSearchItem from "./HeaderSearchItem";
 
 const Header = () => {
   const [searchInputValue, setSearchInputValue] = useState("");
 
+  useEffect(() => {
+    if(searchInputValue) console.log(searchInputValue.trim())
+  }, [searchInputValue])
+
   return (
     <HeaderWrap>
       <Link to="/"><Logo /></Link>
-      <SearchInput><input type="text" onKeyUp={(e) => e.key === "Enter" ? setSearchInputValue(e.target.value) : ""} placeholder="검색"/></SearchInput>
+      <SearchInput>
+        <input type="button" value="" />
+        <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>
+      </SearchInput>
       <SerachResults>
         <SerachResultsFloat>
-          <HeaderSearchItem searhName={searchInputValue}/>
+          <HeaderSearchItem searchName={searchInputValue}/>
         </SerachResultsFloat>
       </SerachResults>
     </HeaderWrap>
@@ -23,23 +30,32 @@ const Header = () => {
 const HeaderWrap = styled.div`
   grid-row: 1/2;
   grid-column: 1/2;
-  display: grid;
-  grid-template-columns: 10% 1fr;
-  column-gap: 10px;
   align-items: center;
   padding-bottom: 20px;
   width: 100%;
 `;
 
 const Logo = styled.div`
-  width: 100%; 
-  height: 0;
-  padding-bottom: 100%;
-  background: center right 10px / 24px url('https://gowndll.github.io/pokemon/assets/img/ico-home.svg') no-repeat;
+  width: 149px;
+  height: 67px;
+  /* background: center / contain url('/assets/img/logo.png') no-repeat; */
+  background: black;
+  margin: 0 auto 50px;
 `;
 
 const SearchInput = styled.div`
-  & > input {
+  display: grid;
+  grid-template-columns: auto 50%;
+  column-gap: 20px;
+  & > input[type="button"] {
+    width: 48px;
+    height: 48px;
+    border:0;
+    /* background: center / 20px url('../../public/assets/img/ico-equalizer.svg') no-repeat; */
+    background: black;
+  }
+
+  & > input[type="text"] {
     width: 100%;
     border:0;
     background-color: #fff;

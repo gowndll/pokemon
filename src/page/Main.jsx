@@ -63,6 +63,9 @@ const Main = () => {
 const MainWrap = styled.ul`
   overflow: auto; 
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -74,16 +77,13 @@ const List = styled.li`
   background-color: rgba(255,255,255,0.8);
   border-radius: 10px;
   img {max-width:100%;}
-  & + & {
-    margin-top: 10px;
-  }
   & > a {
     display: grid;
     grid-template-columns: 1fr 40%;
     justify-content: center;
     grid-template-rows: auto 1fr auto;
     width: 100%;
-    min-height:100px;
+    height:100px;
   }
 `;
 

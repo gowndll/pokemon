@@ -7,8 +7,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
-const HeaderSearchItem = ({searhName}) => {
-  const [searchItem, setSearchITem] = useState(null);
+const HeaderSearchItem = ({searchName}) => {
+  const [searchItem, setSearchItem] = useState(null);
 
   const defaultData = useQuery({
     queryKey: ['defaultData'],
@@ -18,28 +18,46 @@ const HeaderSearchItem = ({searhName}) => {
     refetchOnWindowFocus: false,
   });
 
+  //값 value와 순서 비교하는 로직
+  const checkInOrder = (input, word) => {
+    let index = 0;
+    return [...word].reduce((found, char) => {
+      if (char === input[index]) index++;
+      return index === input.length ? true : found;
+    }, false);
+  }
+
   useEffect(() => {
-    if(defaultData.data && searhName) {
-      const names = defaultData.data.filter((dafaultItem) => dafaultItem.names.some((dafaultItemName => dafaultItemName.name === searhName)));
-      setSearchITem(names[0]);
+    if(defaultData.data && searchName) {
+      const textFilter = defaultData.data.map((dataItem) => {
+        const textKoFilter = dataItem.names.filter((nameItemm) =>  nameItemm.language.name === "ko");
+        if(checkInOrder(searchName, textKoFilter[0].name)) {
+          return dataItem;
+        }
+      });
+      const finalfilter = textFilter.filter((item) => item)
+      setSearchItem(finalfilter);
+    } else if (!searchName) {
+      setSearchItem(null);
     }
-    
-  }, [defaultData.data, searhName])
+  }, [defaultData.data, searchName]);
   
   return (
     <SearchItemList>
-      {searchItem && (
-        <Link to={`/detail/${searchItem.id}`} state={{ name: searchItem.name }}>
-          <No>No.{searchItem.id}</No>
-          <Name><ProfileName names={searchItem.names}/></Name>
-          <Img><ProfileFrontImg totalData={searchItem} alt={searchItem.name}/></Img>
+      {searchItem?.map((item) => (
+        <Link to={`/detail/${item.id}`} state={{ name: item.name }}>
+          <No>No.{item.id}</No>
+          <Name><ProfileName names={item.names}/></Name>
+          <Img><ProfileFrontImg totalData={item} alt={item.name}/></Img>
         </Link>
-      )}
+      ))}
     </SearchItemList>
   )
 }
 
 const SearchItemList = styled.div`
+  max-height: 300px;
+  overflow-y: auto;
   & > a {
     background-color: #fff;
     border-radius: 3px;

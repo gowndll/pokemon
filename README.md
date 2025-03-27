@@ -9,6 +9,8 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
 <img src="https://img.shields.io/badge/ReactQuery-764ABC?style=flat-square&logo=reactquery&logoColor=white"/>
 <img src="https://img.shields.io/badge/Styled--components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white"/>
+<img src="https://img.shields.io/badge/react--router--dom-CA4245?style=flat-square&logo=reactrouter&logoColor=white"/>
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white"/>
 </div>
 
 ## 주요 구현 사항

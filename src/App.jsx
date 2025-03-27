@@ -32,12 +32,8 @@ function App() {
 
 const Wrap = styled.div`
   position: relative;
-  max-width: 480px; 
-  height: 100vh;
-  margin: 0 auto; 
-  padding: 0 0; 
-  border-radius: 20px; 
-  overflow: hidden;
+  padding: 100px 0; 
+  background-color: #ededed;
 `;
 
 const Content = styled.div`
@@ -45,11 +41,12 @@ const Content = styled.div`
   height: 100%;
   margin: 0 auto; 
   padding: 20px; 
-  background: #333; 
+  max-width: 1200px; 
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
 `;
+
 
 
 export default App;
