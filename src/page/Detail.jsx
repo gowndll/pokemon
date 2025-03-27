@@ -136,7 +136,7 @@ const Img = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   column-gap: 10px;
-  justify-content: end;
+  justify-content: center;
 `;
 
 const TypeWrap = styled.div`
