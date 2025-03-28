@@ -1,27 +1,23 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import HeaderSearchItem from "./HeaderSearchItem";
 
 const Header = () => {
   const [searchInputValue, setSearchInputValue] = useState("");
-
-  useEffect(() => {
-    if(searchInputValue) console.log(searchInputValue.trim())
-  }, [searchInputValue])
-
   return (
     <HeaderWrap>
       <Logo><Link to="/"></Link></Logo>
       <SearchButton><input type="button" value="" /></SearchButton>
       <SearchInput>
         <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>
+        <SerachResults className="sibling">
+          <SerachResultsFloat>
+            <HeaderSearchItem searchName={searchInputValue}/>
+          </SerachResultsFloat>
+        </SerachResults>
       </SearchInput>
-      <SerachResults>
-        <SerachResultsFloat>
-          <HeaderSearchItem searchName={searchInputValue}/>
-        </SerachResultsFloat>
-      </SerachResults>
+
     </HeaderWrap>
   )
 
@@ -66,6 +62,10 @@ const SearchButton = styled.div`
 const SearchInput = styled.div`
   grid-column: 3/4;
   grid-row: 2/3;
+  &:focus-within .sibling {
+    display: block;
+  }
+
   & > input[type="text"] {
     width: 100%;
     border:0;
@@ -82,8 +82,7 @@ const SearchInput = styled.div`
 
 const SerachResults = styled.div`
   position: relative;
-  grid-column: 3/4;
-  grid-row: 3/4;
+  display: none;
 `;
 
 const SerachResultsFloat = styled.div`
