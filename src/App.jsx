@@ -34,6 +34,7 @@ const Wrap = styled.div`
   position: relative;
   padding: 100px 0; 
   background-color: #ededed;
+  min-height: 100vh;
 `;
 
 const Content = styled.div`

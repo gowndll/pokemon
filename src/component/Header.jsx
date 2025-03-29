@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import HeaderSearchItem from "./HeaderSearchItem";
 
-const Header = () => {
+const Header = ({isOpenModalClick}) => {
   const [searchInputValue, setSearchInputValue] = useState("");
+
   return (
     <HeaderWrap>
       <Logo><Link to="/"></Link></Logo>
-      <SearchButton><input type="button" value="" /></SearchButton>
+      <SearchButton><input type="button" value="" onClick={isOpenModalClick}/></SearchButton>
       <SearchInput>
         <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>
         <SerachResults className="sibling">
@@ -17,7 +18,6 @@ const Header = () => {
           </SerachResultsFloat>
         </SerachResults>
       </SearchInput>
-
     </HeaderWrap>
   )
 
@@ -78,6 +78,9 @@ const SearchInput = styled.div`
     color: #333;
   };
 
+  @media screen and (max-width: 780px) {
+    grid-column: 2/4;
+  }
 `;
 
 const SerachResults = styled.div`
