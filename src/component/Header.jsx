@@ -1,14 +1,21 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import HeaderSearchItem from "./HeaderSearchItem";
 
 const Header = ({isOpenModalClick}) => {
+  const location = useLocation();
   const [searchInputValue, setSearchInputValue] = useState("");
+
+  const refreshClickEvent = () => {
+    if(location.pathname === '/') {
+      window.location.reload();
+    }
+  }
 
   return (
     <HeaderWrap>
-      <Logo><Link to="/"></Link></Logo>
+      <Logo><Link to="/" onClick={refreshClickEvent}></Link></Logo>
       <SearchButton><input type="button" value="" onClick={isOpenModalClick}/></SearchButton>
       <SearchInput>
         <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>

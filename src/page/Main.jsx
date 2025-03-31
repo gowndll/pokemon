@@ -84,12 +84,12 @@ const Main = () => {
   return (
     <>
       <Header isOpenModalClick={handleModalEvent}/>
+      {noData && (
+        <NoDataList>
+          <p>데이터가 없습니다.</p>
+        </NoDataList>
+      )}
       <MainWrap>
-        {noData && (
-          <NoDataList>
-            <p>데이터가 없습니다.</p>
-          </NoDataList>
-        )}
         {!noData && totalData?.map((data, index) => (
           <List>
             <Link to={`/detail/${data.id}`} state={{ name: data.name }}>
@@ -160,7 +160,11 @@ const TypeLabel = styled.label`
 `;
 
 const NoDataList = styled.div`
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 100px 0;
 `;
 
 const StopPropagation = styled.div`

@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
-import { GetDetailInfo } from "../server/GetPokeAPI";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Stat = ({url}) => {
   const [stat, setStat] = useState(null);
 
+  const statData = useQuery({
+    queryKey: [`stat_${url}`],
+    queryFn: async () => {
+      const response = await axios.get(url);
+      return response.data;
+    },
+    staleTime: Infinity, 
+    cacheTime: Infinity, 
+    refetchOnWindowFocus: false,
+  });
+
   useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const data = await GetDetailInfo(url); // API 호출
-        setStat(data);
-      }
-      catch (error) {
-        console.error(error)
-      } 
+    if(statData.data) {
+      setStat(statData.data);
     }
-    getPosts();
-  }, [url])
+
+  }, [statData.data]);
 
   return (
     <>

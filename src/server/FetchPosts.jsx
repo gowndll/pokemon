@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const POKEMON_LENGTH = 10;
+const POKEMON_LENGTH = 151;
 const pokemonSpecies = Array.from({length: POKEMON_LENGTH}, (_, i) => `https://pokeapi.co/api/v2/pokemon-species/${i+1}`); 
 const pokemonDefault = Array.from({length: POKEMON_LENGTH}, (_, i) => `https://pokeapi.co/api/v2/pokemon/${i+1}`); 
 
