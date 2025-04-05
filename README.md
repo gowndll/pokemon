@@ -19,15 +19,15 @@
   <li>styled-components를 사용해 스타일링</li>
   <li>react-router-dom을 이용해 페이지 라우팅</li>
   <li>1세대 포켓몬 ReacQuery로 다량 api 요청</li>
+  <li>검색 자동완성</li>
 </ul>
 
 ## 업데이트 구현 예정
 <ul>
-  <li>JS를 TS로 업데이트</li>
+  <!-- <li>JS를 TS로 업데이트</li> -->
   <!-- <li>Redux대시 React Query로 1세대 포켓몬 api를 다량 요청후 캐싱하여 사용</li> -->
   <li>포켓몬 정렬처리</li>
-  <li>필터 추가(세대별, 타입별)</li>
-  <li>검색 자동완성</li>
+  <li>필터 추가(세대별)</li>
   <li>뒤로가기 시 스크롤 위치 및 데이터 기억</li>
 </ul>
 

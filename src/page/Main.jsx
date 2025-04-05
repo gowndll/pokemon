@@ -20,6 +20,8 @@ const Main = () => {
   const [tempSelectedItems, setTempSelectedItems] = useState([]);
   const [typeArray, setTypeArray] = useState(null);
   const [noData, setNoData] = useState(false);
+  const [page, setPage] = useState(30);
+  const [isIntersection, setIsIntersection] = useState(true);
 
   const defaultData = useQuery({
     queryKey: ['defaultData'],
@@ -54,22 +56,35 @@ const Main = () => {
     if(matchFilterData.length > 0) {
       setTotalData(matchFilterData);
       setNoData(false);
+      setIsIntersection(false);
     } else {
       if (tempSelectedItems.length === 0) {
-        setTotalData(defaultData.data);
+        const savePages = defaultData.data.filter((item, index) => index < page )
+        setTotalData(savePages);
         setNoData(false);
+        setIsIntersection(true);
       } else {
         setTotalData([]);
         setNoData(true);
+        setIsIntersection(false);
       }
     }
 
     setIsOpen(false);
   }
 
+  const moreData = () => {
+    if(page < 151) {
+      setPage(page+10);
+    } else {
+      setIsIntersection(false);
+    }
+  }
+
   useEffect(() => {
-    if(defaultData.data) {
-      setTotalData(defaultData.data);
+    if(defaultData.data && page) {
+      const savePages = defaultData.data.filter((item, index) => index < page )
+      setTotalData(savePages);
     }
 
     const transTypeToArray = Object.entries(TypeE).map(([key, value]) => ({
@@ -77,7 +92,7 @@ const Main = () => {
       ...value,
     }));
     setTypeArray(transTypeToArray);
-  }, [defaultData.data])
+  }, [defaultData.data, page])
 
   if(defaultData.isLoading) return <Loading/>;
 
@@ -90,7 +105,7 @@ const Main = () => {
         </NoDataList>
       )}
       <MainWrap>
-        {!noData && totalData?.map((data, index) => (
+        {!noData && page && totalData?.map((data, index) => (
           <List>
             <Link to={`/detail/${data.id}`} state={{ name: data.name }}>
               <No>No.{data.id}</No>
@@ -107,26 +122,27 @@ const Main = () => {
             </Link>
           </List>
         ))}
-        <StyledModal isOpen={isOpen} overlayElement={(props, contentElement) => (
-          <Overlay onClick={()=>setIsOpen(false)}><StopPropagation onClick={(e) => e.stopPropagation()}>{contentElement}</StopPropagation></Overlay>
-        )}>
-          <ModalHeader><h2>필터</h2></ModalHeader>
-          <ModalContents>
-            <FilterWrap>
-              {typeArray?.map((item, idx) => (
-                <TypeLabel key={idx} bg={item.color}>
-                  <input type="checkbox" name="type" value={item.id} onChange={(e) => calcFilterEvent(e)} checked={tempSelectedItems.includes(item.id)} hidden/>
-                  <p>{item.name}</p>
-                </TypeLabel>
-              ))}
-            </FilterWrap>
-          </ModalContents>
-          <ModalFooter>
-            <ModalBtn onClick={() => saveFilterEvent()}>저장</ModalBtn>
-          </ModalFooter>
-        </StyledModal>
       </MainWrap>
-      {/* <OnIntersection onIntersect={() => setPage((prev) => prev + 1)}/> */}
+      {isIntersection && <OnIntersection onIntersect={moreData} loading={false}/> }
+
+      <StyledModal isOpen={isOpen} overlayElement={(props, contentElement) => (
+        <Overlay onClick={()=>setIsOpen(false)}><StopPropagation onClick={(e) => e.stopPropagation()}>{contentElement}</StopPropagation></Overlay>
+      )}>
+        <ModalHeader><h2>필터</h2></ModalHeader>
+        <ModalContents>
+          <FilterWrap>
+            {typeArray?.map((item, idx) => (
+              <TypeLabel key={idx} bg={item.color}>
+                <input type="checkbox" name="type" value={item.id} onChange={(e) => calcFilterEvent(e)} checked={tempSelectedItems.includes(item.id)} hidden/>
+                <p>{item.name}</p>
+              </TypeLabel>
+            ))}
+          </FilterWrap>
+        </ModalContents>
+        <ModalFooter>
+          <ModalBtn onClick={() => saveFilterEvent()}>저장</ModalBtn>
+        </ModalFooter>
+      </StyledModal>
     </>
   ) 
 }
