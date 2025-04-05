@@ -16,7 +16,7 @@ const Header = ({isOpenModalClick}) => {
   return (
     <HeaderWrap>
       <Logo><Link to="/" onClick={refreshClickEvent}></Link></Logo>
-      <SearchButton><input type="button" value="" onClick={isOpenModalClick}/></SearchButton>
+      {location.pathname === '/' && <SearchButton><input type="button" value="" onClick={isOpenModalClick}/></SearchButton>}
       <SearchInput>
         <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>
         <SerachResults className="sibling">
