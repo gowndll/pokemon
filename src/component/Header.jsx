@@ -11,8 +11,10 @@ const Header = ({isOpenModalClick}) => {
 
   
   useEffect(() => {
-    if(navigationType === "POP") {
-      navigation(-1);
+    console.log(navigationType);
+    console.log(location);
+    if(navigationType === "POP" ) {
+      // navigation(-1);
     } else if (navigationType === "PUSH" && location.pathname !== '/') {
       window.scrollTo({top: 0})
     }

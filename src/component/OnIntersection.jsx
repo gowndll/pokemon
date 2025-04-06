@@ -42,6 +42,7 @@ const OnIntersection = ({onIntersect, loading}) => {
 
 const More = styled.div`
   width: 100%;
+  margin-top: 20px;
   text-align: center;
   font-size: 14px;
   color: #777;
