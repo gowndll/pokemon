@@ -9,14 +9,8 @@ const Header = ({isOpenModalClick}) => {
   const navigation = useNavigate();
   const navigationType = useNavigationType();
   
-  const isFirstVisit = sessionStorage.getItem('visited') === null;
-
-  
   useEffect(() => {
-    sessionStorage.setItem('visited', false);
-    if(navigationType === "POP" && !isFirstVisit) {
-      navigation(-1);
-    } else if (navigationType === "PUSH" && location.pathname !== '/') {
+    if (navigationType === "PUSH" && location.pathname !== '/') {
       window.scrollTo({top: 0})
     }
   }, [navigationType])
