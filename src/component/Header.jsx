@@ -1,22 +1,32 @@
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate, useNavigationType } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import HeaderSearchItem from "./HeaderSearchItem";
 
 const Header = ({isOpenModalClick}) => {
   const location = useLocation();
   const [searchInputValue, setSearchInputValue] = useState("");
+  const navigation = useNavigate();
+  const navigationType = useNavigationType();
 
-  const refreshClickEvent = () => {
-    if(location.pathname === '/') {
-      window.location.reload();
+  
+  useEffect(() => {
+    if(navigationType === "POP") {
+      navigation(-1);
+    } else if (navigationType === "PUSH" && location.pathname !== '/') {
+      window.scrollTo({top: 0})
     }
-  }
+  }, [navigationType, navigation])
+
+  useEffect(() => {
+
+  }, [])
+
 
   return (
     <HeaderWrap>
-      <Logo><Link to="/" onClick={refreshClickEvent}></Link></Logo>
-      {location.pathname === '/' && <SearchButton><input type="button" value="" onClick={isOpenModalClick}/></SearchButton>}
+      <Logo><Link to="/"></Link></Logo>
+      {location.pathname === '/' ? <SearchButton onClick={isOpenModalClick}></SearchButton> : <BackButton onClick={()=>navigation(-1)}></BackButton>}
       <SearchInput>
         <input type="text" onChange={(e) => setSearchInputValue(e.target.value)} placeholder="검색"/>
         <SerachResults className="sibling">
@@ -54,16 +64,24 @@ const Logo = styled.div`
   }
 `;
 
-const SearchButton = styled.div`
+const SearchButton = styled.button`
   grid-column: 1/2;
   grid-row: 2/3;
-  & > input[type="button"] {
-    width: 48px;
-    height: 48px;
-    border:0;
-    background: center / 20px url('https://gowndll.github.io/pokemon/assets/img/ico-equalizer.svg') no-repeat;
-    cursor: pointer;
-  }
+  width: 48px;
+  height: 48px;
+  border:0;
+  background: center / 20px url('https://gowndll.github.io/pokemon/assets/img/ico-equalizer.svg') no-repeat;
+  cursor: pointer;
+`;
+
+const BackButton = styled.button`
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 48px;
+  height: 48px;
+  border:0;
+  background: center / 20px url('https://gowndll.github.io/pokemon/assets/img/ico-back-line.svg') no-repeat;
+  cursor: pointer;
 `;
 
 const SearchInput = styled.div`

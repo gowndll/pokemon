@@ -35,6 +35,10 @@ const Wrap = styled.div`
   padding: 100px 0; 
   background-color: #ededed;
   min-height: 100vh;
+
+  @media screen and (max-width: 768px) {
+    padding: 40px 0; 
+  }
 `;
 
 const Content = styled.div`

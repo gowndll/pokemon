@@ -30,36 +30,3 @@
   <li>필터 추가(세대별)</li>
   <li>뒤로가기 시 스크롤 위치 및 데이터 기억</li>
 </ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>버전</th>
-      <th>날짜</th>
-      <th>주요 업데이트</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1.01</td>
-      <td>25.03.18</td>
-      <td>
-        <ul>
-          <li>1세대 포켓몬 ReacQuery로 다량 api 요청</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>1.0</td>
-      <td>25.03.18</td>
-      <td>
-        <ul>
-          <li>포켓몬 정보 API 호출(axios)</li>
-          <li>무한 스크롤 구현(Intersection Observer API)</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<p>깃허브 사이트 만들기도 어렵다..</p>

@@ -15,12 +15,14 @@ import Modal from "react-modal";
 Modal.setAppElement("#root"); 
 
 const Main = () => {
+  const savePage = localStorage.getItem('savePage') ? Number(localStorage.getItem('savePage')) : Number(20);
+
   const [totalData, setTotalData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [tempSelectedItems, setTempSelectedItems] = useState([]);
   const [typeArray, setTypeArray] = useState(null);
   const [noData, setNoData] = useState(false);
-  const [page, setPage] = useState(30);
+  const [page, setPage] = useState(savePage);
   const [isIntersection, setIsIntersection] = useState(true);
 
   const defaultData = useQuery({
@@ -82,6 +84,20 @@ const Main = () => {
   }
 
   useEffect(() => {
+    return () => {
+      localStorage.setItem('savePage', page)
+    }
+  }, [page])
+
+  
+
+  window.addEventListener("beforeunload", () => {
+    localStorage.removeItem('savePage');
+  });
+
+
+  useEffect(() => {
+
     if(defaultData.data && page) {
       const savePages = defaultData.data.filter((item, index) => index < page )
       setTotalData(savePages);
