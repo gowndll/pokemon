@@ -8,17 +8,18 @@ const Header = ({isOpenModalClick}) => {
   const [searchInputValue, setSearchInputValue] = useState("");
   const navigation = useNavigate();
   const navigationType = useNavigationType();
+  
+  const isFirstVisit = sessionStorage.getItem('visited') === null;
 
   
   useEffect(() => {
-    console.log(navigationType);
-    console.log(location);
-    if(navigationType === "POP" ) {
-      // navigation(-1);
+    sessionStorage.setItem('visited', false);
+    if(navigationType === "POP" && !isFirstVisit) {
+      navigation(-1);
     } else if (navigationType === "PUSH" && location.pathname !== '/') {
       window.scrollTo({top: 0})
     }
-  }, [navigationType, navigation])
+  }, [navigationType])
 
   useEffect(() => {
 
@@ -82,7 +83,7 @@ const BackButton = styled.button`
   width: 48px;
   height: 48px;
   border:0;
-  background: center / 20px url('https://gowndll.github.io/pokemon/assets/img/ico-back-line.svg') no-repeat;
+  background: center / 20px url('https://gowndll.github.io/pokemon/assets/img/ico-arrow-left.svg') no-repeat;
   cursor: pointer;
 `;
 
