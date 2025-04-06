@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import Loading from "../component/Skeletone";
+import Loading from "../component/Loading";
 import OnIntersection from "../component/OnIntersection";
 import Header from "component/Header";
 import { Link } from "react-router-dom";
@@ -126,7 +126,7 @@ const Main = () => {
             <Link to={`/detail/${data.id}`} state={{ name: data.name }}>
               <No>No.{data.id}</No>
               <Name><ProfileName names={data.names}/></Name>
-              <Img><ProfileFrontImg totalData={data} alt={data.name}/></Img>
+              <Img key={data.name}><ProfileFrontImg totalData={data} alt={data.name}/></Img>
               <TypeWrap>
                 {data.types.map((item) => (
                   <Type bgcolor={TypeE[item.type.name].color}>
